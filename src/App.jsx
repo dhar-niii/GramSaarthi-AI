@@ -6180,7 +6180,7 @@ if (
 
     try {
       const response = await fetch(
-        "http://localhost:5000/api/analyze",
+        "https://gram-saarthi-ai-five.vercel.app/api/analyze",
         {
           method: "POST",
           headers: {
