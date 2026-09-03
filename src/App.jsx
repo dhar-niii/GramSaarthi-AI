@@ -169,6 +169,11 @@ const translations = {
     schemeNote:
       "This is an illustrative repayment estimate. Actual loan terms, interest, subsidy and moratorium depend on the lender and applicable scheme eligibility.",
     downloadReport: "Download Complete Report",
+    downloadCompleteReport: "Download Complete Report",
+    listen: "Listen",
+    audioLoading: "Generating audio...",
+    audioNotSupported: "Voice output is not supported in this browser.",
+    audioError: "Unable to play the generated audio.",
     supportOpportunities: "SUPPORT OPPORTUNITIES",
     exploreSupport: "Explore possible support schemes",
     governmentBankSupport: "Government / Bank Support",
@@ -720,6 +725,11 @@ const translations = {
     schemeNote:
       "यह एक उदाहरणात्मक भुगतान अनुमान है। वास्तविक लोन शर्तें, ब्याज, सब्सिडी और मोराटोरियम ऋणदाता तथा लागू योजना की पात्रता पर निर्भर करते हैं।",
     downloadReport: "पूरी रिपोर्ट डाउनलोड करें",
+    downloadCompleteReport: "पूरी रिपोर्ट डाउनलोड करें",
+    listen: "सुनें",
+    audioLoading: "ऑडियो तैयार किया जा रहा है...",
+    audioNotSupported: "इस ब्राउज़र में वॉइस आउटपुट समर्थित नहीं है।",
+    audioError: "जनरेट किया गया ऑडियो नहीं चल सकता।",
     supportOpportunities: "सहायता के अवसर",
     exploreSupport: "संभावित सहायता योजनाएं देखें",
     governmentBankSupport: "सरकारी / बैंक सहायता",
@@ -994,6 +1004,11 @@ const translations = {
     schemeNote:
       "हा प्रातिनिधिक परतफेड अंदाज आहे. वास्तविक कर्जाच्या अटी, व्याज, अनुदान आणि मोरॅटोरियम कर्जदाता व योजनेच्या पात्रतेवर अवलंबून असतात.",
     downloadReport: "संपूर्ण अहवाल डाउनलोड करा",
+    downloadCompleteReport: "संपूर्ण अहवाल डाउनलोड करा",
+    listen: "ऐका",
+    audioLoading: "ऑडिओ तयार होत आहे...",
+    audioNotSupported: "या ब्राउझरमध्ये वॉइस आउटपुट समर्थित नाही.",
+    audioError: "जेनरेट केलेला ऑडिओ चालवता आला नाही.",
     supportOpportunities: "सहाय्याच्या संधी",
     exploreSupport: "संभाव्य सहाय्य योजना पहा",
     governmentBankSupport: "सरकार / बँक सहाय्य",
@@ -1268,6 +1283,11 @@ const translations = {
     schemeNote:
       "ਇਹ ਇੱਕ ਉਦਾਹਰਨਾਤਮਕ ਭੁਗਤਾਨ ਅੰਦਾਜ਼ਾ ਹੈ। ਅਸਲ ਕਰਜ਼ੇ ਦੀਆਂ ਸ਼ਰਤਾਂ, ਵਿਆਜ, ਸਬਸਿਡੀ ਅਤੇ ਮੋਰਾਟੋਰਿਅਮ ਕਰਜ਼ਾਦਾਤਾ ਅਤੇ ਯੋਜਨਾ ਦੀ ਯੋਗਤਾ 'ਤੇ ਨਿਰਭਰ ਕਰਦੇ ਹਨ।",
     downloadReport: "ਪੂਰੀ ਰਿਪੋਰਟ ਡਾਊਨਲੋਡ ਕਰੋ",
+    downloadCompleteReport: "ਪੂਰੀ ਰਿਪੋਰਟ ਡਾਊਨਲੋਡ ਕਰੋ",
+    listen: "ਸੁਣੋ",
+    audioLoading: "ਆਡੀਓ ਤਿਆਰ ਕੀਤਾ ਜਾ ਰਿਹਾ ਹੈ...",
+    audioNotSupported: "ਇਸ ਬ੍ਰਾਊਜ਼ਰ ਵਿੱਚ ਵੌਇਸ ਆਊਟਪੁਟ ਸਹਿਯੋਗ ਨਹੀਂ ਹੈ।",
+    audioError: "ਜਨਰੇਟ ਕੀਤੀ ਆਡੀਓ ਚਲਾਈ ਨਹੀਂ ਜਾ ਸਕੀ।",
     supportOpportunities: "ਸਹਾਇਤਾ ਦੇ ਮੌਕੇ",
     exploreSupport: "ਸੰਭਾਵਿਤ ਸਹਾਇਤਾ ਯੋਜਨਾਵਾਂ ਵੇਖੋ",
     governmentBankSupport: "ਸਰਕਾਰ / ਬੈਂਕ ਸਹਾਇਤਾ",
@@ -1542,6 +1562,11 @@ const translations = {
     schemeNote:
       "এটি একটি উদাহরণমূলক পরিশোধের হিসাব। প্রকৃত ঋণের শর্ত, সুদ, ভর্তুকি এবং মোরাটোরিয়াম ঋণদাতা ও প্রকল্পের যোগ্যতার উপর নির্ভর করে।",
     downloadReport: "সম্পূর্ণ রিপোর্ট ডাউনলোড করুন",
+    downloadCompleteReport: "সম্পূর্ণ রিপোর্ট ডাউনলোড করুন",
+    listen: "শুনুন",
+    audioLoading: "অডিও তৈরি হচ্ছে...",
+    audioNotSupported: "এই ব্রাউজারে ভয়েস আউটপুট সমর্থিত নয়।",
+    audioError: "তৈরি অডিও চালানো যায়নি।",
     supportOpportunities: "সহায়তার সুযোগ",
     exploreSupport: "সম্ভাব্য সহায়তা প্রকল্প দেখুন",
     governmentBankSupport: "সরকার / ব্যাংক সহায়তা",
@@ -1817,6 +1842,11 @@ const translations = {
     schemeNote:
       "இது ஒரு விளக்கமான திருப்பிச் செலுத்தும் மதிப்பீடு. உண்மையான கடன் விதிமுறைகள், வட்டி, மானியம் மற்றும் தவணை ஒத்திவைப்பு கடன் வழங்குநர் மற்றும் திட்டத் தகுதியைப் பொறுத்தது.",
     downloadReport: "முழு அறிக்கையைப் பதிவிறக்கவும்",
+    downloadCompleteReport: "முழு அறிக்கையைப் பதிவிறக்கவும்",
+    listen: "கேளுங்கள்",
+    audioLoading: "ஆடியோ உருவாக்கப்படுகிறது...",
+    audioNotSupported: "இந்த உலாவியில் குரல் வெளியீடு ஆதரிக்கப்படவில்லை.",
+    audioError: "உருவாக்கப்பட்ட ஆடியோவை இயக்க முடியவில்லை.",
     supportOpportunities: "ஆதரவு வாய்ப்புகள்",
     exploreSupport: "சாத்தியமான ஆதரவு திட்டங்களைப் பார்க்கவும்",
     governmentBankSupport: "அரசு / வங்கி ஆதரவு",
@@ -2092,6 +2122,11 @@ const translations = {
     schemeNote:
       "ఇది ఉదాహరణాత్మక తిరిగి చెల్లింపు అంచనా. నిజమైన రుణ నిబంధనలు, వడ్డీ, సబ్సిడీ మరియు మొరటోరియం రుణదాత మరియు పథకం అర్హతపై ఆధారపడి ఉంటాయి.",
     downloadReport: "పూర్తి నివేదికను డౌన్‌లోడ్ చేయండి",
+    downloadCompleteReport: "పూర్తి నివేదికను డౌన్‌లోడ్ చేయండి",
+    listen: "వినండి",
+    audioLoading: "ఆడియో సృష్టించబడుతోంది...",
+    audioNotSupported: "ఈ బ్రౌజర్‌లో వాయిస్ అవుట్‌పుట్ లేదు.",
+    audioError: "సృష్టించిన ఆడియోను ప్లే చేయడం సాధ్యం కాలేదు.",
     supportOpportunities: "మద్దతు అవకాశాలు",
     exploreSupport: "సంభావ్య మద్దతు పథకాలను చూడండి",
     governmentBankSupport: "ప్రభుత్వం / బ్యాంక్ మద్దతు",
@@ -2367,6 +2402,11 @@ const translations = {
     schemeNote:
       "ಇದು ಉದಾಹರಣಾತ್ಮಕ ಮರುಪಾವತಿ ಅಂದಾಜು. ನಿಜವಾದ ಸಾಲದ ನಿಯಮಗಳು, ಬಡ್ಡಿ, ಸಬ್ಸಿಡಿ ಮತ್ತು ಮೋರಟೋರಿಯಂ ಸಾಲದಾತ ಮತ್ತು ಯೋಜನೆಯ ಅರ್ಹತೆಯನ್ನು ಅವಲಂಬಿಸಿರುತ್ತದೆ.",
     downloadReport: "ಸಂಪೂರ್ಣ ವರದಿಯನ್ನು ಡೌನ್‌ಲೋಡ್ ಮಾಡಿ",
+    downloadCompleteReport: "ಸಂಪೂರ್ಣ ವರದಿಯನ್ನು ಡೌನ್‌ಲೋಡ್ ಮಾಡಿ",
+    listen: "ಕೇಳಿ",
+    audioLoading: "ಆಡಿಯೋ ತಯಾರಿಸಲಾಗುತ್ತಿದೆ...",
+    audioNotSupported: "ಈ ಬ್ರೌಸರ್‌ನಲ್ಲಿ ವಾಯ್ಸ್ ಔಟ್‌ಪುಟ್ ಅನ್ನು ಬೆಂಬಲಿಸುವುದಿಲ್ಲ.",
+    audioError: "ರಚಿಸಲಾದ ಆಡಿಯೋವನ್ನು ಪ್ಲೇ ಮಾಡಲು ಸಾಧ್ಯವಾಗಲಿಲ್ಲ.",
     supportOpportunities: "ಬೆಂಬಲದ ಅವಕಾಶಗಳು",
     exploreSupport: "ಸಂಭಾವ್ಯ ಬೆಂಬಲ ಯೋಜನೆಗಳನ್ನು ನೋಡಿ",
     governmentBankSupport: "ಸರ್ಕಾರ / ಬ್ಯಾಂಕ್ ಬೆಂಬಲ",
@@ -2642,6 +2682,11 @@ const translations = {
     schemeNote:
       "ഇത് ഒരു ഉദാഹരണാത്മക തിരിച്ചടവ് കണക്കാണ്. യഥാർത്ഥ വായ്പാ നിബന്ധനകൾ, പലിശ, സബ്സിഡി, മൊറട്ടോറിയം എന്നിവ വായ്പദാതാവിനെയും പദ്ധതി യോഗ്യതയെയും ആശ്രയിച്ചിരിക്കും.",
     downloadReport: "പൂർണ്ണ റിപ്പോർട്ട് ഡൗൺലോഡ് ചെയ്യുക",
+    downloadCompleteReport: "പൂർണ്ണ റിപ്പോർട്ട് ഡൗൺലോഡ് ചെയ്യുക",
+    listen: "കേൾക്കൂ",
+    audioLoading: "ഓഡിയോ സൃഷ്ടിച്ചുകൊണ്ടിരിക്കുന്നു...",
+    audioNotSupported: "ഈ ബ്രൗസറിൽ വോയ്സ് ഔട്ട്പുട്ട് സപ്പോർട്ട് ചെയ്യില്ല.",
+    audioError: "സൃഷ്ടിച്ച ഓഡിയോ പ്ലേ ചെയ്യാൻ കഴിഞ്ഞില്ല.",
     supportOpportunities: "പിന്തുണാ അവസരങ്ങൾ",
     exploreSupport: "സാധ്യമായ പിന്തുണാ പദ്ധതികൾ കാണുക",
     governmentBankSupport: "സർക്കാർ / ബാങ്ക് പിന്തുണ",
@@ -2917,6 +2962,11 @@ const translations = {
     schemeNote:
       "ଏହା ଏକ ଉଦାହରଣାତ୍ମକ ପରିଶୋଧ ଆନୁମାନ। ପ୍ରକୃତ ଋଣ ସର୍ତ୍ତ, ସୁଧ, ସବସିଡି ଏବଂ ମୋରାଟୋରିୟମ ଋଣଦାତା ଏବଂ ଯୋଜନା ଯୋଗ୍ୟତା ଉପରେ ନିର୍ଭର କରେ।",
     downloadReport: "ସମ୍ପୂର୍ଣ୍ଣ ରିପୋର୍ଟ ଡାଉନଲୋଡ କରନ୍ତୁ",
+    downloadCompleteReport: "ସମ୍ପୂର୍ଣ୍ଣ ରିପୋର୍ଟ ଡାଉନଲୋଡ କରନ୍ତୁ",
+    listen: "ଶୁଣନ୍ତୁ",
+    audioLoading: "ଅଡିଓ ତିଆରୀ ହେଉଛି...",
+    audioNotSupported: "ଏହି ବ୍ରାଉଜରରେ ଭଏସ୍ ଆଉଟପୁଟ ସମର୍ଥିତ ନାହିଁ।",
+    audioError: "ତିଆରି ଅଡିଓ ପ୍ଲେ କରାଯାଇପାରିଲା ନାହିଁ।",
     supportOpportunities: "ସହାୟତା ସୁଯୋଗ",
     exploreSupport: "ସମ୍ଭାବ୍ୟ ସହାୟତା ଯୋଜନା ଦେଖନ୍ତୁ",
     governmentBankSupport: "ସରକାର / ବ୍ୟାଙ୍କ ସହାୟତା",
@@ -3059,8 +3109,11 @@ function App() {
     language: "English",
     business: "Suggest a business for me",
   });
+  const [bankReadyReport, setBankReadyReport] = React.useState(null);
+  const [pdfReport, setPdfReport] = React.useState(null);
   const [isListening, setIsListening] = React.useState(false);
-const [voiceText, setVoiceText] = React.useState("");
+  const [isSpeaking, setIsSpeaking] = React.useState(false);
+  const [voiceText, setVoiceText] = React.useState("");
 
 const startVoiceInput = () => {
   console.log("VOICE BUTTON CLICKED");
@@ -3124,11 +3177,35 @@ const startVoiceInput = () => {
   recognition.start();
 };
 
-const mapVoiceToForm = (text) => {
-  const lowerText = text.toLowerCase();
+   const mapVoiceToForm = (text) => {
+  if (!text || !text.trim()) return;
+
+  const lowerText = text.toLowerCase().trim();
   const updatedData = { ...formData };
 
-  // 💰 CAPITAL
+  // =========================================================
+  // 🌐 LANGUAGE DETECTION
+  // =========================================================
+
+  const gujaratiPattern = /[\u0A80-\u0AFF]/;
+  const hindiPattern = /[\u0900-\u097F]/;
+
+  let detectedLanguage = formData.language || "English";
+
+  if (gujaratiPattern.test(text)) {
+    detectedLanguage = "Gujarati";
+  } else if (hindiPattern.test(text)) {
+    detectedLanguage = "Hindi";
+  } else {
+    detectedLanguage = "English";
+  }
+
+  updatedData.language = detectedLanguage;
+
+  // =========================================================
+  // 💰 CAPITAL EXTRACTION
+  // =========================================================
+
   const moneyMatch = lowerText.match(
     /(?:₹|rs\.?|rupees?|inr)?\s*([\d,]+(?:\.\d+)?)\s*(thousand|k|lakh|lakhs|crore|crores|rupees?|rs\.?|₹)?/i
   );
@@ -3142,109 +3219,187 @@ const mapVoiceToForm = (text) => {
 
     if (unit === "thousand" || unit === "k") {
       amount *= 1000;
-    } else if (unit === "lakh" || unit === "lakhs") {
+    } else if (
+      unit === "lakh" ||
+      unit === "lakhs"
+    ) {
       amount *= 100000;
-    } else if (unit === "crore" || unit === "crores") {
+    } else if (
+      unit === "crore" ||
+      unit === "crores"
+    ) {
       amount *= 10000000;
     }
 
     updatedData.capital = Math.round(amount).toString();
   }
 
-  // 📍 LOCATION
-  const locationMatch = lowerText.match(
-    /(?:live in|from|near|at|location is|village is)\s+([a-zA-Z\s]+?)(?:,|\.| and |$)/i
-  );
+  // =========================================================
+  // 📍 LOCATION EXTRACTION
+  // =========================================================
 
-  if (locationMatch) {
-    updatedData.location = locationMatch[1].trim();
-  }
+  const locationPatterns = [
+    /(?:live in|from|near|at|location is|village is)\s+([a-zA-Z\s]+?)(?:,|\.| and |$)/i,
 
-  // 🛠️ SKILLS
-  const skillKeywords = [
-    "farming",
-    "dairy farming",
-    "tailoring",
-    "cooking",
-    "carpentry",
-    "handicraft",
-    "weaving",
-    "poultry",
-    "gardening",
-    "teaching",
-    "driving",
-    "repair"
+    /(?:રહું છું|ગામ છે|ગામમાં|સ્થળ છે)\s+([\u0A80-\u0AFF\s]+?)(?:,|\.| અને |$)/i,
+
+    /(?:रहता हूँ|रहती हूँ|गांव है|गाँव है|स्थान है)\s+([\u0900-\u097F\s]+?)(?:,|।| और |$)/i
   ];
 
-  const foundSkills = skillKeywords.filter((skill) =>
-    lowerText.includes(skill)
-  );
+  for (const pattern of locationPatterns) {
+    const match = text.match(pattern);
+
+    if (match && match[1]) {
+      updatedData.location = match[1].trim();
+      break;
+    }
+  }
+
+  // =========================================================
+  // 🛠️ SKILLS
+  // =========================================================
+
+  const skillMap = {
+    farming: "Farming",
+    "dairy farming": "Dairy Farming",
+    tailoring: "Tailoring",
+    cooking: "Cooking",
+    carpentry: "Carpentry",
+    handicraft: "Handicraft",
+    weaving: "Weaving",
+    poultry: "Poultry",
+    gardening: "Gardening",
+    teaching: "Teaching",
+    driving: "Driving",
+    repair: "Repair",
+
+    "खेती": "Farming",
+    "कृषि": "Farming",
+    "सिलाई": "Tailoring",
+    "खाना बनाना": "Cooking",
+    "बढ़ई": "Carpentry",
+
+    "ખેતી": "Farming",
+    "સિલાઈ": "Tailoring",
+    "રસોઈ": "Cooking",
+    "કારીગરી": "Handicraft"
+  };
+
+  const foundSkills = Object.keys(skillMap)
+    .filter((keyword) =>
+      lowerText.includes(keyword.toLowerCase())
+    )
+    .map((keyword) => skillMap[keyword]);
 
   if (foundSkills.length > 0) {
-    updatedData.skills = foundSkills.join(", ");
+    updatedData.skills = [
+      ...new Set(foundSkills)
+    ].join(", ");
   }
 
-  // 🌾 RESOURCES
-  const resourceKeywords = [
-    "land",
-    "farm",
-    "cow",
-    "cows",
-    "buffalo",
-    "water",
-    "tractor",
-    "shop",
-    "vehicle",
-    "sewing machine",
-    "tools",
-    "livestock"
-  ];
+  // =========================================================
+  // 📦 RESOURCES
+  // =========================================================
 
-  const foundResources = resourceKeywords.filter((resource) =>
-    lowerText.includes(resource)
-  );
+  const resourceMap = {
+    land: "Land",
+    farm: "Farm",
+    cow: "Cow",
+    cows: "Cows",
+    buffalo: "Buffalo",
+    water: "Water",
+    tractor: "Tractor",
+    shop: "Shop",
+    vehicle: "Vehicle",
+    "sewing machine": "Sewing Machine",
+    tools: "Tools",
+    livestock: "Livestock",
+
+    "जमीन": "Land",
+    "खेत": "Farm",
+    "गाय": "Cow",
+    "भैंस": "Buffalo",
+    "ट्रैक्टर": "Tractor",
+    "दुकान": "Shop",
+
+    "જમીન": "Land",
+    "ખેતર": "Farm",
+    "ગાય": "Cow",
+    "ભેંસ": "Buffalo",
+    "ટ્રેક્ટર": "Tractor",
+    "દુકાન": "Shop"
+  };
+
+  const foundResources = Object.keys(resourceMap)
+    .filter((keyword) =>
+      lowerText.includes(keyword.toLowerCase())
+    )
+    .map((keyword) => resourceMap[keyword]);
 
   if (foundResources.length > 0) {
-    updatedData.resources = foundResources.join(", ");
+    updatedData.resources = [
+      ...new Set(foundResources)
+    ].join(", ");
   }
 
-  // 💡 BUSINESS
-  const businessKeywords = [
-    "dairy",
-    "poultry",
-    "tailoring",
-    "farming",
-    "bakery",
-    "catering",
-    "handicraft",
-    "vegetable",
-    "organic",
-    "vermicompost",
-    "grocery"
-  ];
+  // =========================================================
+  // 🏪 BUSINESS
+  // =========================================================
 
-  const foundBusiness = businessKeywords.find((business) =>
-    lowerText.includes(business)
+  const businessMap = {
+    dairy: "Dairy",
+    poultry: "Poultry",
+    tailoring: "Tailoring",
+    farming: "Organic Farming",
+    bakery: "Food Processing",
+    catering: "Cooking / Catering",
+    handicraft: "Handicrafts",
+    vegetable: "Organic Farming",
+    organic: "Organic Farming",
+    vermicompost: "Vermicompost / Organic Inputs",
+    grocery: "Grocery",
+
+    "डेयरी": "Dairy",
+    "दूध": "Dairy",
+    "पोल्ट्री": "Poultry",
+    "सिलाई": "Tailoring",
+    "खेती": "Organic Farming",
+    "बेकरी": "Food Processing",
+    "किराना": "Grocery",
+
+    "ડેરી": "Dairy",
+    "દૂધ": "Dairy",
+    "પોલ્ટ્રી": "Poultry",
+    "સિલાઈ": "Tailoring",
+    "ખેતી": "Organic Farming",
+    "બેકરી": "Food Processing",
+    "કિરાણા": "Grocery"
+  };
+
+  const foundBusiness = Object.keys(businessMap).find(
+    (keyword) =>
+      lowerText.includes(keyword.toLowerCase())
   );
 
   if (foundBusiness) {
-    const businessMap = {
-      dairy: "Dairy",
-      poultry: "Poultry",
-      tailoring: "Tailoring",
-      farming: "Organic Farming",
-      bakery: "Food Processing",
-      catering: "Cooking / Catering",
-      handicraft: "Handicrafts",
-      vegetable: "Organic Farming",
-      organic: "Organic Farming",
-      vermicompost: "Vermicompost / Organic Inputs",
-      grocery: "Grocery"
-    };
-
     updatedData.business =
-      businessMap[foundBusiness] || "";
+      businessMap[foundBusiness];
   }
+
+  // =========================================================
+  // 📊 NLP PROFILE
+  // =========================================================
+
+  updatedData.voiceInput = text;
+
+  console.log("🧠 NLP PROFILE:", {
+    language: updatedData.language,
+    location: updatedData.location,
+    capital: updatedData.capital,
+    business: updatedData.business,
+    skills: updatedData.skills,
+    resources: updatedData.resources
+  });
 
   setFormData(updatedData);
 };
@@ -3475,6 +3630,127 @@ if (
     );
   })();
 
+  const getAiGuidanceText = () => {
+    if (!aiResult) return "";
+
+    try {
+      const report =
+        typeof aiResult === "string"
+          ? JSON.parse(aiResult)
+          : aiResult;
+
+      const summaryParts = [
+        report?.marketReach?.summary,
+        report?.opportunity?.summary,
+        report?.recommendation?.reason,
+        report?.recommendation?.verdict,
+      ].filter(Boolean);
+
+      return summaryParts.join(". ");
+    } catch (error) {
+      console.error("AI guidance parse error:", error);
+      return "";
+    }
+  };
+
+  const downloadPdfReport = () => {
+    if (!pdfReport?.available || !pdfReport?.data) {
+      return;
+    }
+
+    try {
+      const rawPdfData = pdfReport.data.includes("base64,")
+        ? pdfReport.data.split("base64,")[1]
+        : pdfReport.data;
+
+      const binary = atob(rawPdfData);
+      const bytes = Uint8Array.from(binary, (char) =>
+        char.charCodeAt(0)
+      );
+      const blob = new Blob([bytes], {
+        type: pdfReport.mimeType || "application/pdf",
+      });
+      const url = URL.createObjectURL(blob);
+      const link = document.createElement("a");
+
+      link.href = url;
+      link.download =
+        pdfReport.fileName || "GramSaarthi-Business-Report.pdf";
+      document.body.appendChild(link);
+      link.click();
+      link.remove();
+
+      setTimeout(() => URL.revokeObjectURL(url), 2000);
+    } catch (error) {
+      console.error("PDF download error:", error);
+      alert(t.aiReportError || t.backendError);
+    }
+  };
+
+  const speakText = React.useCallback(
+    async (text) => {
+      if (!text || !text.trim()) return;
+
+      if (!window.Audio) {
+        alert(t.audioNotSupported);
+        return;
+      }
+
+      setIsSpeaking(true);
+
+      try {
+        const response = await fetch("/api/voice", {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify({
+            text,
+            language: formData.language || "English",
+          }),
+        });
+
+        const data = await response.json();
+
+        if (!response.ok || !data.success || !data.audio) {
+          throw new Error(
+            data?.message ||
+              data?.error ||
+              t.audioError ||
+              "Unable to generate audio."
+          );
+        }
+
+        const rawAudio = data.audio.includes("base64,")
+          ? data.audio.split("base64,")[1]
+          : data.audio;
+        const binary = atob(rawAudio);
+        const bytes = Uint8Array.from(binary, (char) =>
+          char.charCodeAt(0)
+        );
+        const blob = new Blob([bytes], {
+          type: data.mimeType || "audio/wav",
+        });
+        const audioUrl = URL.createObjectURL(blob);
+        const audio = new Audio(audioUrl);
+
+        audio.onended = () => URL.revokeObjectURL(audioUrl);
+        audio.onerror = () => {
+          URL.revokeObjectURL(audioUrl);
+          alert(t.audioError);
+        };
+
+        await audio.play();
+      } catch (error) {
+        console.error("Voice output error:", error);
+        alert(t.audioError);
+      } finally {
+        setIsSpeaking(false);
+      }
+    },
+    [formData.language, t.audioError, t.audioNotSupported]
+  );
+
   /* =========================================================
      RESULTS PAGE
   ========================================================= */
@@ -3531,6 +3807,16 @@ if (
               </div>
             </div>
 
+            <button
+              type="button"
+              className="continue-btn"
+              onClick={() =>
+                speakText(translatedRecommendation.reason)
+              }
+            >
+              {isSpeaking ? t.audioLoading : `🔊 ${t.listen}`}
+            </button>
+
             {aiResult && (
               <div className="ai-report-card">
                 <div className="ai-report-header">
@@ -3544,6 +3830,14 @@ if (
                     <h2>{t.aiBusinessAdvisor}</h2>
                   </div>
                 </div>
+
+                <button
+                  type="button"
+                  className="continue-btn"
+                  onClick={() => speakText(getAiGuidanceText())}
+                >
+                  {isSpeaking ? t.audioLoading : `🔊 ${t.listen}`}
+                </button>
 
                 <div className="ai-report-text">
                   {(() => {
@@ -5453,6 +5747,15 @@ if (
             📄 {t.downloadReport}
           </button>
 
+          {pdfReport?.available && pdfReport?.data && (
+            <button
+              className="continue-btn"
+              onClick={downloadPdfReport}
+            >
+              📄 {t.downloadCompleteReport}
+            </button>
+          )}
+
           <div className="scheme-section">
             <p className="small-label">
               {t.supportOpportunities}
@@ -5495,6 +5798,15 @@ if (
               {t.financeAdvice}
             </p>
           </div>
+
+          <button
+            className="continue-btn"
+            onClick={() =>
+              speakText(t.financeAdvice)
+            }
+          >
+            {isSpeaking ? t.audioLoading : `🔊 ${t.listen}`}
+          </button>
 
           <button
             className="continue-btn"
@@ -5775,6 +6087,15 @@ if (
               </p>
             </div>
           </div>
+
+          <button
+            className="continue-btn"
+            onClick={() =>
+              speakText(t.finalAdviceDesc)
+            }
+          >
+            {isSpeaking ? t.audioLoading : `🔊 ${t.listen}`}
+          </button>
 
           <button
             className="continue-btn"
@@ -6179,6 +6500,15 @@ if (
     console.log("🚀 AI ANALYSIS BUTTON CLICKED");
 
     try {
+      const payload = {
+        location: formData.location,
+        capital: formData.capital,
+        business: formData.business,
+        skills: formData.skills,
+        resources: formData.resources,
+        language: formData.language,
+      };
+
       const response = await fetch(
         "https://gram-saarthi-ai-five.vercel.app/api/analyze",
         {
@@ -6186,7 +6516,7 @@ if (
           headers: {
             "Content-Type": "application/json",
           },
-          body: JSON.stringify(formData),
+          body: JSON.stringify(payload),
         }
       );
 
@@ -6197,7 +6527,9 @@ if (
       console.log("🤖 AI response:", data);
 
       if (data.success) {
-        setAiResult(data.result);
+        setAiResult(data.result || "");
+        setBankReadyReport(data.bankReadyReport || null);
+        setPdfReport(data.pdf || null);
         setPage("results");
       } else {
         console.error("❌ AI response error:", data);
