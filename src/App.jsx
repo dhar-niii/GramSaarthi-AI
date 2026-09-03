@@ -306,6 +306,20 @@ const translations = {
     actionPlanMonitor: "First monitoring",
     actionPlanNoData: "No specific action plan was provided by the AI. Use the checklist below to get started.",
     actionPlanListen: "Listen to plan summary",
+    governmentSupportTitle: "Government & Funding Support",
+    governmentSupportSubtitle: "Potential support areas you may explore",
+    fundingCategory: "Support area",
+    supportWhyRelevant: "Why it may be relevant",
+    supportWhatToCheck: "What to check",
+    supportEligibility: "Eligibility note",
+    supportFinancing: "Business Financing",
+    supportTraining: "Entrepreneurship & Skill Support",
+    supportAgriculture: "Agriculture / Allied Support",
+    supportEquipment: "Equipment & Infrastructure Support",
+    supportMarketAccess: "Market & Digital Support",
+    supportLocalBusiness: "Local business & registration",
+    supportVerifyOfficial: "Government schemes and eligibility change frequently. Verify current details through official government or financial institution sources before applying.",
+    governmentSupportNoData: "No specific government support information was provided by the AI. Below are potential areas to explore.",
     finalRecommendationTitle: "Final Recommendation",
     finalDecisionRecommended: "Recommended",
     finalDecisionNotRecommended: "Not Recommended",
@@ -4246,6 +4260,62 @@ if (
                     }
                   })();
 
+                  // Build government / funding guidance from AI result or fallback categories
+                  const govSource =
+                    report?.governmentSupport || report?.fundingSupport || report?.fundingOptions || report?.supportOptions || report?.schemes || report?.governmentSchemes || report?.financing || report?.funding || bankReadyReport?.funding || bankReadyReport?.governmentSupport || null;
+
+                  let govItems = [];
+                  if (Array.isArray(govSource) && govSource.length) {
+                    govItems = govSource.map((g) => (typeof g === "string" ? g : JSON.stringify(g)));
+                  } else if (typeof govSource === "string") {
+                    govItems = [govSource];
+                  }
+
+                  // Conservative fallback categories based on business type
+                  const businessLower = (formData.business || "").toLowerCase();
+                  const fallbackCategories = [];
+
+                  if (/farm|dairy|agri|farming|vegetable|organic|poultry|cattle|livestock/.test(businessLower)) {
+                    fallbackCategories.push(tr("supportAgriculture"));
+                    fallbackCategories.push(tr("supportEquipment"));
+                    fallbackCategories.push(tr("supportFinancing"));
+                    fallbackCategories.push(tr("supportTraining"));
+                  } else if (/food|bakery|catering|processing|grocery|shop/.test(businessLower)) {
+                    fallbackCategories.push(tr("supportFinancing"));
+                    fallbackCategories.push(tr("supportTraining"));
+                    fallbackCategories.push(tr("supportLocalBusiness"));
+                    fallbackCategories.push(tr("supportMarketAccess"));
+                  } else if (/handicraft|weaving|craft|artisan|carpentry|tailor|tailoring/.test(businessLower)) {
+                    fallbackCategories.push(tr("supportTraining"));
+                    fallbackCategories.push(tr("supportMarketAccess"));
+                    fallbackCategories.push(tr("supportFinancing"));
+                  } else {
+                    fallbackCategories.push(tr("supportFinancing"));
+                    fallbackCategories.push(tr("supportTraining"));
+                    fallbackCategories.push(tr("supportLocalBusiness"));
+                    fallbackCategories.push(tr("supportMarketAccess"));
+                  }
+
+                  const hasGov = govItems.length > 0;
+
+                  const govSummaryText = (() => {
+                    try {
+                      const parts = [];
+                      parts.push(tr("governmentSupportTitle"));
+                      if (hasGov) {
+                        govItems.slice(0, 6).forEach((g, i) => parts.push(`${i + 1}. ${g}`));
+                      } else {
+                        parts.push(tr("governmentSupportNoData"));
+                        fallbackCategories.slice(0, 4).forEach((c, i) => parts.push(`${i + 1}. ${c}`));
+                      }
+                      parts.push(`Business: ${formData.business || tr("notSpecified")}`);
+                      parts.push(`Location: ${formData.location || tr("notSpecified")}`);
+                      return parts.join(". ");
+                    } catch (e) {
+                      return "";
+                    }
+                  })();
+
                   return (
                     <div className="final-recommendation-card">
                       <div className="final-header">
@@ -4255,6 +4325,56 @@ if (
                           className={`decision-badge ${isRec ? "recommended" : "not-recommended"}`}
                         >
                           {isRec ? t.finalDecisionRecommended : t.finalDecisionNotRecommended}
+                        </div>
+
+                        {/* Government & Funding Guidance */}
+                        <div className="government-support-card" style={{marginTop:12}}>
+                          <h4>{tr("governmentSupportTitle")}</h4>
+                          <p className="small-label">{tr("governmentSupportSubtitle")}</p>
+
+                          {hasGov ? (
+                            <div>
+                              <p>
+                                <strong>{tr("fundingCategory")}: </strong>
+                              </p>
+                              <ul>
+                                {govItems.map((g, i) => (
+                                  <li key={i}>
+                                    <div><strong>{g}</strong></div>
+                                    <div style={{fontSize:13, color:"#444"}}>
+                                      {tr("supportWhyRelevant")}: {t.notSpecified}
+                                    </div>
+                                    <div style={{fontSize:13, color:"#666"}}>
+                                      {tr("supportWhatToCheck")}: {tr("supportVerifyOfficial")}
+                                    </div>
+                                  </li>
+                                ))}
+                              </ul>
+                            </div>
+                          ) : (
+                            <div>
+                              <p>{tr("governmentSupportNoData")}</p>
+                              <div>
+                                <ul>
+                                  {fallbackCategories.map((c, i) => (
+                                    <li key={i}>
+                                      <strong>{c}</strong>
+                                      <div style={{fontSize:13, color:"#444"}}>
+                                        {tr("supportWhyRelevant")} - {t.notSpecified}
+                                      </div>
+                                      <div style={{fontSize:13, color:"#666"}}>
+                                        {tr("supportWhatToCheck")} - {tr("supportVerifyOfficial")}
+                                      </div>
+                                    </li>
+                                  ))}
+                                </ul>
+                              </div>
+                            </div>
+                          )}
+
+                          <p style={{fontSize:12, color:"#666", marginTop:8}}>
+                            {tr("supportVerifyOfficial")}
+                          </p>
                         </div>
                       </div>
 
