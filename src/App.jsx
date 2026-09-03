@@ -298,6 +298,14 @@ const translations = {
     mainRisks: "Main Risks",
     nextSteps: "Next Steps",
     bankReadyReportTitle: "Bank Ready Report",
+    actionPlanTitle: "Your Personalized Action Plan",
+    actionPlanBasedOn: "Plan based on",
+    actionPlanImmediate: "Immediate",
+    actionPlanPreparation: "Preparation",
+    actionPlanLaunch: "Launch",
+    actionPlanMonitor: "First monitoring",
+    actionPlanNoData: "No specific action plan was provided by the AI. Use the checklist below to get started.",
+    actionPlanListen: "Listen to plan summary",
     finalRecommendationTitle: "Final Recommendation",
     finalDecisionRecommended: "Recommended",
     finalDecisionNotRecommended: "Not Recommended",
@@ -3435,6 +3443,9 @@ const startVoiceInput = () => {
   const t =
     translations[formData.language] || translations.English;
 
+  // safe translation getter: prefers selected language, falls back to English
+  const tr = (key) => (t && t[key]) || translations.English[key] || key;
+
   const [simulator, setSimulator] = React.useState({
     investment: 50000,
     customers: 15,
@@ -4191,6 +4202,50 @@ if (
 
                   const steps = report?.recommendation?.steps || [];
 
+                  // Build a safe action plan from available AI / report fields
+                  const actionSource =
+                    report?.actionPlan || report?.plan || report?.roadmap || report?.recommendation?.steps || report?.nextSteps || bankReadyReport?.actionPlan || bankReadyReport?.roadmap || [];
+
+                  const planArray = Array.isArray(actionSource)
+                    ? actionSource
+                    : typeof actionSource === "string"
+                    ? [actionSource]
+                    : [];
+
+                  const immediatePlan = planArray.slice(0, 2);
+                  const preparationPlan = planArray.slice(2, 4);
+                  const launchPlan = planArray.slice(4, 6);
+                  const monitorPlan = planArray.slice(6, 10);
+
+                  const hasPlan = planArray.length > 0;
+
+                  const planSummaryText = (() => {
+                    try {
+                      const parts = [];
+                      parts.push(`${tr("actionPlanTitle")} - ${recommendedBusiness}`);
+                      if (hasPlan) {
+                        planArray.slice(0, 6).forEach((s, i) => {
+                          parts.push(`${i + 1}. ${s}`);
+                        });
+                      } else {
+                        parts.push(tr("actionPlanNoData"));
+                        parts.push(tr("validateDemand"));
+                        parts.push(tr("smallPilot"));
+                        parts.push(tr("trackNumbers"));
+                        parts.push(tr("planFinances"));
+                      }
+
+                      parts.push(`Location: ${formData.location || tr("notSpecified")}`);
+                      parts.push(`Capital: ${formData.capital || tr("notSpecified")}`);
+                      parts.push(`Skills: ${formData.skills || tr("notSpecified")}`);
+                      parts.push(`Resources: ${formData.resources || tr("notSpecified")}`);
+
+                      return parts.join(". ");
+                    } catch (e) {
+                      return "";
+                    }
+                  })();
+
                   return (
                     <div className="final-recommendation-card">
                       <div className="final-header">
@@ -4246,6 +4301,91 @@ if (
                             <span> {t.notSpecified} </span>
                           )}
                         </div>
+
+                        {/* Personalized Action Plan */}
+                        <div className="personal-action-plan-card" style={{marginTop:12}}>
+                          <h4>{tr("actionPlanTitle")}</h4>
+
+                          <p>
+                            <strong>{tr("actionPlanBasedOn")}:</strong>
+                          </p>
+
+                          <ul>
+                            <li>
+                              {t.businessIdea}: {formData.business || t.notSpecified}
+                            </li>
+                            <li>
+                              {t.location}: {formData.location || t.notSpecified}
+                            </li>
+                            <li>
+                              {t.capital}: {formData.capital || t.notSpecified}
+                            </li>
+                            <li>
+                              {t.skills}: {formData.skills || t.notSpecified}
+                            </li>
+                            <li>
+                              {t.resources}: {formData.resources || t.notSpecified}
+                            </li>
+                          </ul>
+
+                          {hasPlan ? (
+                            <div>
+                              {immediatePlan.length > 0 && (
+                                <div>
+                                  <strong>{tr("actionPlanImmediate")}:</strong>
+                                  <ol>
+                                    {immediatePlan.map((p, i) => (
+                                      <li key={i}>{p}</li>
+                                    ))}
+                                  </ol>
+                                </div>
+                              )}
+
+                              {preparationPlan.length > 0 && (
+                                <div>
+                                  <strong>{tr("actionPlanPreparation")}:</strong>
+                                  <ol>
+                                    {preparationPlan.map((p, i) => (
+                                      <li key={i}>{p}</li>
+                                    ))}
+                                  </ol>
+                                </div>
+                              )}
+
+                              {launchPlan.length > 0 && (
+                                <div>
+                                  <strong>{tr("actionPlanLaunch")}:</strong>
+                                  <ol>
+                                    {launchPlan.map((p, i) => (
+                                      <li key={i}>{p}</li>
+                                    ))}
+                                  </ol>
+                                </div>
+                              )}
+
+                              {monitorPlan.length > 0 && (
+                                <div>
+                                  <strong>{tr("actionPlanMonitor")}:</strong>
+                                  <ol>
+                                    {monitorPlan.map((p, i) => (
+                                      <li key={i}>{p}</li>
+                                    ))}
+                                  </ol>
+                                </div>
+                              )}
+                            </div>
+                          ) : (
+                            <div>
+                              <p>{tr("actionPlanNoData")}</p>
+                              <ul>
+                                <li>{t.validateDemand}</li>
+                                <li>{t.smallPilot}</li>
+                                <li>{t.trackNumbers}</li>
+                                <li>{t.planFinances}</li>
+                              </ul>
+                            </div>
+                          )}
+                        </div>
                       </div>
 
                       <div className="final-actions">
@@ -4262,6 +4402,14 @@ if (
                             📄 {t.downloadCompleteReport}
                           </button>
                         )}
+
+                        <button
+                          type="button"
+                          className="continue-btn"
+                          onClick={() => speakText(planSummaryText)}
+                        >
+                          {isSpeaking ? t.audioLoading : `🔊 ${tr("actionPlanListen")}`}
+                        </button>
                       </div>
                     </div>
                   );
