@@ -290,6 +290,22 @@ const translations = {
       "Could not connect to GramSaarthi AI. Please make sure the backend is running.",
     aiReportError:
       "AI report could not be displayed. Please try the analysis again.",
+    finalRecommendationTitle: "Final Recommendation",
+    finalDecisionRecommended: "Recommended",
+    finalDecisionNotRecommended: "Not Recommended",
+    investment: "Investment",
+    expectedProfit: "Expected Profit",
+    mainRisks: "Main Risks",
+    nextSteps: "Next Steps",
+    bankReadyReportTitle: "Bank Ready Report",
+    finalRecommendationTitle: "Final Recommendation",
+    finalDecisionRecommended: "Recommended",
+    finalDecisionNotRecommended: "Not Recommended",
+    investment: "Investment",
+    expectedProfit: "Expected Profit",
+    mainRisks: "Main Risks",
+    nextSteps: "Next Steps",
+    bankReadyReportTitle: "Bank Ready Report",
   },
 
   Gujarati: {
@@ -3082,6 +3098,18 @@ const translations = {
       "AI ରିପୋର୍ଟ ପ୍ରଦର୍ଶିତ ହୋଇପାରିଲା ନାହିଁ। ଦୟାକରି ପୁଣି ବିଶ୍ଳେଷଣ କରନ୍ତୁ।",
   },
 };
+// Ensure every language has the same keys as English (fallback)
+Object.keys(translations).forEach((lang) => {
+  if (lang === "English") return;
+  const base = translations.English || {};
+  const target = translations[lang] || {};
+  Object.keys(base).forEach((k) => {
+    if (!(k in target)) {
+      target[k] = base[k];
+    }
+  });
+  translations[lang] = target;
+});
 
 /* =========================================================
    BUSINESS OPTIONS
@@ -4121,6 +4149,127 @@ if (
                   })()}
                 </div>
               </div>
+            )}
+
+            {/* Final Recommendation — concise summary from backend result */}
+            {aiResult && (
+              (() => {
+                try {
+                  const report =
+                    typeof aiResult === "string"
+                      ? JSON.parse(aiResult)
+                      : aiResult;
+
+                  const verdict =
+                    report?.recommendation?.verdict || report?.decision || "";
+                  const isRec = /recommend/i.test(verdict || "");
+
+                  const recommendedBusiness =
+                    report?.recommendation?.business ||
+                    report?.recommendation?.name ||
+                    formData.business ||
+                    t.notSpecified;
+
+                  const why =
+                    report?.recommendation?.reason || report?.opportunity?.summary ||
+                    t.notSpecified;
+
+                  const financial = report?.financials || report?.financialOutcome || {};
+                  const requiredInvestment =
+                    financial?.requiredInvestment ||
+                    financial?.investmentRequired ||
+                    formData.capital ||
+                    t.notSpecified;
+
+                  const expectedProfit =
+                    financial?.expectedProfit || financial?.expectedRevenue || t.notSpecified;
+
+                  const risks =
+                    report?.risks?.summary || report?.mainRisks || report?.risk || t.notSpecified;
+
+                  const marketInsight = report?.marketReach?.summary || t.notSpecified;
+
+                  const steps = report?.recommendation?.steps || [];
+
+                  return (
+                    <div className="final-recommendation-card">
+                      <div className="final-header">
+                        <h3>{t.finalRecommendationTitle}</h3>
+
+                        <div
+                          className={`decision-badge ${isRec ? "recommended" : "not-recommended"}`}
+                        >
+                          {isRec ? t.finalDecisionRecommended : t.finalDecisionNotRecommended}
+                        </div>
+                      </div>
+
+                      <div className="final-body">
+                        <p>
+                          <strong>{t.recommended}: </strong>
+                          {recommendedBusiness}
+                        </p>
+
+                        <p>
+                          <strong>{t.why}: </strong>
+                          {why}
+                        </p>
+
+                        <p>
+                          <strong>{t.investment}: </strong>
+                          {requiredInvestment}
+                        </p>
+
+                        <p>
+                          <strong>{t.expectedProfit}: </strong>
+                          {expectedProfit}
+                        </p>
+
+                        <p>
+                          <strong>{t.mainRisks}: </strong>
+                          {Array.isArray(risks) ? risks.join(", ") : risks}
+                        </p>
+
+                        <p>
+                          <strong>{t.localMarketAnalysis}: </strong>
+                          {marketInsight}
+                        </p>
+
+                        <div>
+                          <strong>{t.nextSteps}: </strong>
+                          {steps.length ? (
+                            <ol>
+                              {steps.map((s, i) => (
+                                <li key={i}>{s}</li>
+                              ))}
+                            </ol>
+                          ) : (
+                            <span> {t.notSpecified} </span>
+                          )}
+                        </div>
+                      </div>
+
+                      <div className="final-actions">
+                        <button
+                          type="button"
+                          className="continue-btn"
+                          onClick={() => speakText(getAiGuidanceText())}
+                        >
+                          {isSpeaking ? t.audioLoading : `🔊 ${t.listen}`}
+                        </button>
+
+                        {pdfReport?.available && pdfReport?.data && (
+                          <button className="continue-btn" onClick={downloadPdfReport}>
+                            📄 {t.downloadCompleteReport}
+                          </button>
+                        )}
+                      </div>
+                    </div>
+                  );
+                } catch (err) {
+                  console.error("Final recommendation render error:", err);
+                  return null;
+                }
+              })()
             )}
 
             <div className="score-grid">
