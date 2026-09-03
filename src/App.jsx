@@ -298,6 +298,11 @@ const translations = {
     mainRisks: "Main Risks",
     nextSteps: "Next Steps",
     bankReadyReportTitle: "Bank Ready Report",
+    analysisError: "Analysis error. Please try again.",
+    serverUnavailable: "GramSaarthi AI could not connect to the analysis service. Please check that the server is running and try again.",
+    tryAgain: "Please try again",
+    analysisInProgress: "Analysis in progress...",
+    invalidResponse: "Received an unexpected response from the server.",
     actionPlanTitle: "Your Personalized Action Plan",
     actionPlanBasedOn: "Plan based on",
     actionPlanImmediate: "Immediate",
@@ -320,6 +325,11 @@ const translations = {
     supportLocalBusiness: "Local business & registration",
     supportVerifyOfficial: "Government schemes and eligibility change frequently. Verify current details through official government or financial institution sources before applying.",
     governmentSupportNoData: "No specific government support information was provided by the AI. Below are potential areas to explore.",
+    analysisError: "Analysis error. Please try again.",
+    serverUnavailable: "GramSaarthi AI could not connect to the analysis service. Please check that the server is running and try again.",
+    tryAgain: "Please try again",
+    analysisInProgress: "Analysis in progress...",
+    invalidResponse: "Received an unexpected response from the server.",
     finalRecommendationTitle: "Final Recommendation",
     finalDecisionRecommended: "Recommended",
     finalDecisionNotRecommended: "Not Recommended",
@@ -511,6 +521,11 @@ const translations = {
     supportLocalBusiness: "સ્થાનિક વ્યવસાય અને નોંધણી",
     supportVerifyOfficial: "સરકારી યોજનાઓ અને પાત્રતા વારંવાર બદલાય છે. અરજી કરતા પહેલા સત્તાવાર સ્ત્રોતો દ્વારા વર્તમાન વિગતો ચકાસો.",
     governmentSupportNoData: "AI દ્વારા કોઈ વિશિષ્ટ સરકાર સહાય માહિતી પ્રદાન કરવામાં આવી નથી. નીચેના વિસ્તારો તપાસો.",
+    analysisError: "વિશ્લેષણમાં ભૂલ. કૃપા કરીને ફરી પ્રયત્ન કરો.",
+    serverUnavailable: "GramSaarthi AI વિશ્લેષણ સેવા જોડાઈ શકી નથી. કૃપા કરીને સર્વર ચાલે છે તેની તપાસ કરો અને ફરી પ્રયત્ન કરો.",
+    tryAgain: "કૃપા કરીને ફરી પ્રયત્ન કરો",
+    analysisInProgress: "વિશ્લેષણ ચાલુ છે...",
+    invalidResponse: "સર્વરથી અપેક્ષિત જવાબ મળ્યો નથી.",
     supportOpportunities: "સહાયની તકો",
     exploreSupport: "સંભવિત સહાય યોજનાઓ શોધો",
     governmentBankSupport: "સરકાર / બેંક સહાય",
@@ -807,6 +822,11 @@ const translations = {
     supportLocalBusiness: "स्थानीय व्यापार और पंजीकरण",
     supportVerifyOfficial: "सरकारी योजनाएँ और पात्रता अक्सर बदलती हैं। आवेदन करने से पहले आधिकारिक स्रोतों से वर्तमान विवरण सत्यापित करें।",
     governmentSupportNoData: "AI द्वारा कोई विशिष्ट सरकारी सहायता जानकारी प्रदान नहीं की गई है। नीचे दिए गए क्षेत्रों का अन्वेषण करें।",
+    analysisError: "विश्लेषण त्रुटि। कृपया पुनः प्रयास करें।",
+    serverUnavailable: "GramSaarthi AI विश्लेषण सेवा से जुड़ नहीं पाया। कृपया जांचें कि सर्वर चल रहा है और पुनः प्रयास करें।",
+    tryAgain: "कृपया पुनः प्रयास करें",
+    analysisInProgress: "विश्लेषण जारी है...",
+    invalidResponse: "सर्वर से अप्रत्याशित प्रतिक्रिया प्राप्त हुई।",
     downloadCompleteReport: "पूरी रिपोर्ट डाउनलोड करें",
     listen: "सुनें",
     audioLoading: "ऑडियो तैयार किया जा रहा है...",
@@ -1109,6 +1129,11 @@ const translations = {
     supportLocalBusiness: "स्थानिक व्यवसाय व नोंदणी",
     supportVerifyOfficial: "सरकारी योजना व पात्रता वारंवार बदलू शकतात. अर्ज करण्यापूर्वी अधिकृत स्रोतांद्वारे सद्य माहिती तपासा.",
     governmentSupportNoData: "AI कडून कोणतीही विशिष्ट सरकारी सहाय्य माहिती उपलब्ध नाही. खालील क्षेत्रे तपासा.",
+    analysisError: "विश्लेषणात त्रुटी आली. कृपया पुन्हा प्रयत्न करा.",
+    serverUnavailable: "GramSaarthi AI विश्लेषण सेवेशी कनेक्ट करू शकले नाही. कृपया सर्व्हर चालू आहे का ते तपासा आणि पुन्हा प्रयत्न करा.",
+    tryAgain: "कृपया पुन्हा प्रयत्न करा",
+    analysisInProgress: "विश्लेषण चालू आहे...",
+    invalidResponse: "सर्व्हरकडून अनपेक्षित प्रतिसाद प्राप्त झाला.",
     listen: "ऐका",
     audioLoading: "ऑडिओ तयार होत आहे...",
     audioNotSupported: "या ब्राउझरमध्ये वॉइस आउटपुट समर्थित नाही.",
@@ -1409,6 +1434,11 @@ const translations = {
     supportLocalBusiness: "ਸਥਾਨਕ ਵਪਾਰ ਅਤੇ ਰਜਿਸਟ੍ਰੇਸ਼ਨ",
     supportVerifyOfficial: "ਸਰਕਾਰੀ ਯੋਜਨਾਵਾਂ ਅਤੇ ਪਾਤਰਤਾ ਅਕਸਰ ਵਾਰੀ-ਵਾਰੀ ਬਦਲਦੇ ਰਹਿੰਦੇ ਹਨ। ਅਰਜ਼ੀ ਤੋਂ ਪਹਿਲਾਂ ਅਧਿਕਾਰਿਕ ਸਰੋਤਾਂ ਤੋਂ ਮੌਜੂਦਾ ਵੇਰਵੇ ਚੈੱਕ ਕਰੋ।",
     governmentSupportNoData: "AI ਵੱਲੋਂ ਕੋਈ ਵਿਸ਼ੇਸ਼ ਸਰਕਾਰੀ ਮਦਦ ਜਾਣਕਾਰੀ ਪ੍ਰਦਾਨ ਨਹੀਂ ਕੀਤੀ ਗਈ। ਹੇਠਾਂ ਦਿੱਤੇ ਖੇਤਰ ਖੋਜੋ।",
+    analysisError: "ਵਿਸ਼ਲੇਸ਼ਣ ਵਿੱਚ ਤ੍ਰੁੱਟੀ. ਕਿਰਪਾ ਕਰਕੇ ਮੁੜ ਕੋਸ਼ਿਸ਼ ਕਰੋ.",
+    serverUnavailable: "GramSaarthi AI ਵਿਸ਼ਲੇਸ਼ਣ ਸੇਵਾ ਨਾਲ ਜੁੜ ਨਹੀਂ ਸਕਿਆ। ਕਿਰਪਾ ਕਰਕੇ ਸਰਵਰ ਚੱਲ ਰਿਹਾ ਹੈ ਜਾਂ ਨਹੀਂ ਜਾਂਚੋ ਅਤੇ ਮੁੜ ਕੋਸ਼ਿਸ਼ ਕਰੋ.",
+    tryAgain: "ਕਿਰਪਾ ਕਰਕੇ ਮੁੜ ਕੋਸ਼ਿਸ਼ ਕਰੋ",
+    analysisInProgress: "ਵਿਸ਼ਲੇਸ਼ਣ ਚੱਲ ਰਿਹਾ ਹੈ...",
+    invalidResponse: "ਸਰਵਰ ਤੋਂ ਅਣਉਮੀਦਿਤ ਪ੍ਰਤਿਕਿਰਿਆ ਮਿਲੀ।",
     downloadCompleteReport: "ਪੂਰੀ ਰਿਪੋਰਟ ਡਾਊਨਲੋਡ ਕਰੋ",
     listen: "ਸੁਣੋ",
     audioLoading: "ਆਡੀਓ ਤਿਆਰ ਕੀਤਾ ਜਾ ਰਿਹਾ ਹੈ...",
@@ -2012,6 +2042,11 @@ const translations = {
     supportLocalBusiness: "உள்ளூரு வணிகம் மற்றும் பதிவு",
     supportVerifyOfficial: "அரசு திட்டங்கள் மற்றும் தகுதிகள் அடிக்கடி மாறும். விண்ணப்பிப்பதற்கு முன் அதிகாரப்பூர்வ ஆதாரங்களில் தற்போதைய விவரங்களை சரிபார்க்கவும்.",
     governmentSupportNoData: "AI வழங்கிய எந்த குறிப்பிட்ட அரசு ஆதரவு தகவலும் இல்லை. கீழ்க்காணும் பகுதிகளை ஆராய்க.",
+    analysisError: "பகுப்பாய்வில் பிழை. தயவுசெய்து மீண்டும் முயற்சிக்கவும்.",
+    serverUnavailable: "GramSaarthi AI பகுப்பாய்வு சேவையுடன் இணைக்க முடியவில்லை. சேவையகம் இயங்குகிறதா என தயவுசெய்து சரிபார்த்து மீண்டும் முயற்சிக்கவும்.",
+    tryAgain: "தயவுசெய்து மீண்டும் முயற்சிக்கவும்",
+    analysisInProgress: "பகுப்பாய்வு நடைபெற்று கொண்டிருக்கிறது...",
+    invalidResponse: "சர்வரிலிருந்து அனுபவிக்காத பதிலைப் பெற்றது.",
     downloadCompleteReport: "முழு அறிக்கையைப் பதிவிறக்கவும்",
     listen: "கேளுங்கள்",
     audioLoading: "ஆடியோ உருவாக்கப்படுகிறது...",
@@ -2314,6 +2349,11 @@ const translations = {
     supportLocalBusiness: "స్థానిక వ్యాపార & నమోదు",
     supportVerifyOfficial: "ప్రభుత్వ పథకాలు మరియు అర్హతలు తరచూ మారవచ్చు. దరఖాస్తు చేసే ముందు అధికారిక వనరుల ద్వారా ప్రస్తుత వివరాలను నిర్ధారించుకోండి.",
     governmentSupportNoData: "AI ద్వారా ప్రత్యేక ప్రభుత్వ మద్దతు సమాచారం అందలేదు. క్రింద ఉన్న ప్రాంతాలను అన్వేషించండి.",
+    analysisError: "విశ్లేషణ లోపం. దయచేసి తిరిగి ప్రయత్నించండి.",
+    serverUnavailable: "GramSaarthi AI విశ్లేషణ సేవకు కనెక్ట్ కావడం లేదు. సర్వర్ চলছে అని తనిఖీ చేసి మరల ప్రయత్నించండి.",
+    tryAgain: "దయచేసి మళ్లీ ప్రయత్నించండి",
+    analysisInProgress: "విశ్లేషణ కొనసాగుతోంది...",
+    invalidResponse: "సర్వర్ నుండి అప్రతీలిత ప్రతిస్పందన వచ్చింది.",
     downloadCompleteReport: "పూర్తి నివేదికను డౌన్‌లోడ్ చేయండి",
     listen: "వినండి",
     audioLoading: "ఆడియో సృష్టించబడుతోంది...",
@@ -2616,6 +2656,11 @@ const translations = {
     supportLocalBusiness: "ಸ್ಥಳೀಯ ವ್ಯವಹಾರ ಮತ್ತು ನೋಂದಣಿ",
     supportVerifyOfficial: "ಸರ್ಕಾರಿ ಯೋಜನೆಗಳು ಮತ್ತು ಅರ್ಹತೆಗಳು ಹೆಚ್ಚಾಗಿ ಬದಲಾಯಿಸಬಹುದು. ಅರ್ಜಿ ಸಲ್ಲಿಸುವ ಮೊದಲು ಅಧಿಕೃತ ಮೂಲಗಳಿಂದ ಪ್ರಸ್ತುತ ವಿವರಗಳನ್ನು ಪರಿಶೀಲಿಸಿ.",
     governmentSupportNoData: "AI ನೀಡಿದ ಯಾವುದೇ ನಿರ್ದಿಷ್ಟ ಸರ್ಕಾರಿ ಸಹಾಯ ಮಾಹಿತಿ ಇಲ್ಲ. ಕೆಳಗಿನ ವಿಭಾಗಗಳನ್ನು ಪರಿಶೀಲಿಸಿ.",
+    analysisError: "ವಿಶ್ಲೇಷಣದಲ್ಲಿ ದೋಷ. ದಯವಿಟ್ಟು ಮತ್ತೆ ಪ್ರಯತ್ನಿಸಿ.",
+    serverUnavailable: "GramSaarthi AI ವಿಶ್ಲೇಷಣಾ ಸೇವೆಗೆ ಸಂಪರ್ಕಿಸಲು ಸಾಧ್ಯವಾಗಲಿಲ್ಲ. ದಯವಿಟ್ಟು ಸರ್ವರ್ ಚಾಲಿತದಲ್ಲಿದೆಯೇ ಎಂದು ಪರಿಶೀಲಿಸಿ ಮತ್ತು ಮತ್ತೆ ಪ್ರಯತ್ನಿಸಿ.",
+    tryAgain: "ದಯವಿಟ್ಟು ಮತ್ತೆ ಪ್ರಯತ್ನಿಸಿ",
+    analysisInProgress: "ವಿಶ್ಲೇಷಣಾ ಕಾರ್ಯ جارಿಯಿದೆ...",
+    invalidResponse: "ಸರ್ವರ್‌ನಿಂದ ಅಪ್ರತೀಕ್ಷಿತ ಪ್ರತಿಕ್ರಿಯೆ ದೊರಕಿದಂತೆ.",
     downloadCompleteReport: "ಸಂಪೂರ್ಣ ವರದಿಯನ್ನು ಡೌನ್‌ಲೋಡ್ ಮಾಡಿ",
     listen: "ಕೇಳಿ",
     audioLoading: "ಆಡಿಯೋ ತಯಾರಿಸಲಾಗುತ್ತಿದೆ...",
@@ -2918,6 +2963,11 @@ const translations = {
     supportLocalBusiness: "പ്രാദേശിക ബിസിനസ് & രജിസ്ട്രേഷൻ",
     supportVerifyOfficial: "സർക്കാർ സ്കീമുകളും യോഗ്യതയും ചിലപ്പോൾ മാറാറാണ്. അപേക്ഷിക്കുമ്ബോൾ ഔദ്യോഗിക സ്രോതസ്സുകളിൽ നിലവിലെ വിവരങ്ങൾ ഉറപ്പാക്കുക.",
     governmentSupportNoData: "AI യിൽ നിന്നുള്ള പ്രത്യേക സർക്കാർ സഹായ വിവരങ്ങൾ ലഭ്യമല്ല. താഴെയുള്ള മേഖലകൾ പരിശോധിക്കുക.",
+    analysisError: "വിശകലനത്തിൽ പിശക്. ദയവായി വീണ്ടും ശ്രമിക്കുക.",
+    serverUnavailable: "GramSaarthi AI വിശകലന സെർവീസുമായി കണക്ട് ചെയ്യാൻ കഴിഞ്ഞില്ല. സെർവർ പ്രവർത്തിച്ചോളുന്നുണ്ടോയെന്ന് പരിശോധിച്ച് വീണ്ടും ശ്രമിക്കുക.",
+    tryAgain: "ദയവായി വീണ്ടും ശ്രമിക്കുക",
+    analysisInProgress: "വിശകലനം നടക്കുകയാണ്...",
+    invalidResponse: "സർവറിൽ നിന്ന് അപ്രതീക്ഷിതമായ പ്രതികരണം ലഭിച്ചു.",
     downloadCompleteReport: "പൂർണ്ണ റിപ്പോർട്ട് ഡൗൺലോഡ് ചെയ്യുക",
     listen: "കേൾക്കൂ",
     audioLoading: "ഓഡിയോ സൃഷ്ടിച്ചുകൊണ്ടിരിക്കുന്നു...",
@@ -3220,6 +3270,11 @@ const translations = {
     supportLocalBusiness: "ସ୍ଥାନୀୟ ବ୍ୟବସାୟ ନିବନ୍ଧନ",
     supportVerifyOfficial: "ସରକାରୀ ଯୋଜନା ଏବଂ ଯୋଗ୍ୟତା ପ୍ରାୟଃ ପରିବର୍ତ୍ତିତ ହୁଏ। ଆବେଦନ ପୂର୍ବରୁ ଅଧିକାରିକ ସ୍ରୋତ ମାଧ୍ୟମରେ ଚାଲୁ ତଥ୍ୟ ଯାଁଚ କରନ୍ତୁ।",
     governmentSupportNoData: "AI ଦ୍ୱାରା କୌଣସି ବିଶେଷ ସରକାରୀ ସହାୟତା ସୂଚନା ଦିଆଯାଇନାହିଁ। ନିମ୍ନର କ୍ଷେତ୍ରଗୁଡିକୁ ତଲାଶ କରନ୍ତୁ।",
+    analysisError: "ବିଶ୍ଲେଷଣ ତ୍ରୁଟି। ଦୟାକରି ପୁନର୍ଯ୍ୟାସ କରନ୍ତୁ।",
+    serverUnavailable: "GramSaarthi AI ବିଶ୍ଲେଷଣ ସେବା ସହିତ ଯୋଗାଯୋଗ କରିପାରିନାହିଁ। ଦୟାକରି ସର୍ଭର ଚାଲୁ ଅଛି କି ନାହିଁ ଯାଞ୍ଚ କରନ୍ତୁ ଏବଂ ପୁନର୍ଯ୍ୟାସ କରନ୍ତୁ।",
+    tryAgain: "ଦୟାକରି ପୁନର୍ଯ୍ୟାସ କରନ୍ତୁ",
+    analysisInProgress: "ବିଶ୍ଲେଷଣ ପାଇଁ ପ୍ରକ୍ରିୟା ଚାଲୁଛି...",
+    invalidResponse: "ସର୍ଭରରୁ ଅପେକ୍ଷିତ ଉତ୍ତର ମିଳିନାହିଁ।",
     downloadCompleteReport: "ସମ୍ପୂର୍ଣ୍ଣ ରିପୋର୍ଟ ଡାଉନଲୋଡ କରନ୍ତୁ",
     listen: "ଶୁଣନ୍ତୁ",
     audioLoading: "ଅଡିଓ ତିଆରୀ ହେଉଛି...",
@@ -3384,6 +3439,7 @@ function App() {
   const [isListening, setIsListening] = React.useState(false);
   const [isSpeaking, setIsSpeaking] = React.useState(false);
   const [voiceText, setVoiceText] = React.useState("");
+  const [isAnalyzing, setIsAnalyzing] = React.useState(false);
 
 const startVoiceInput = () => {
   console.log("VOICE BUTTON CLICKED");
@@ -4023,6 +4079,85 @@ if (
     },
     [formData.language, t.audioError, t.audioNotSupported]
   );
+
+  // Robust analyze handler to prevent duplicate submits and handle errors safely
+  const handleAnalyze = async () => {
+    if (isAnalyzing) return;
+
+    // Basic required-field check (minimal, non-strict)
+    if (!formData.location || !formData.business) {
+      alert(tr("invalidResponse") || t.aiAnalysisFailed);
+      return;
+    }
+
+    setIsAnalyzing(true);
+
+    try {
+      const payload = {
+        location: formData.location,
+        capital: formData.capital,
+        business: formData.business,
+        skills: formData.skills,
+        resources: formData.resources,
+        language: formData.language,
+      };
+
+      const controller = new AbortController();
+      const timeout = setTimeout(() => controller.abort(), 30000);
+
+      let response;
+
+      try {
+        response = await fetch(
+          "https://gram-saarthi-ai-five.vercel.app/api/analyze",
+          {
+            method: "POST",
+            headers: {
+              "Content-Type": "application/json",
+            },
+            body: JSON.stringify(payload),
+            signal: controller.signal,
+          }
+        );
+      } catch (err) {
+        console.error("Analyze network error:", err);
+        alert(tr("serverUnavailable") || t.backendError);
+        return;
+      } finally {
+        clearTimeout(timeout);
+      }
+
+      let data;
+      try {
+        data = await response.json();
+      } catch (err) {
+        console.error("Invalid JSON from analyze:", err);
+        alert(tr("invalidResponse") || t.aiAnalysisFailed);
+        return;
+      }
+
+      if (!response.ok) {
+        console.error("Server returned non-OK status:", response.status, data);
+        alert(data?.error || tr("analysisError") || t.backendError);
+        return;
+      }
+
+      if (data && data.success) {
+        setAiResult(data.result || "");
+        setBankReadyReport(data.bankReadyReport || null);
+        setPdfReport(data.pdf || null);
+        setPage("results");
+      } else {
+        console.error("AI response indicated failure:", data);
+        alert(data?.error || data?.message || tr("analysisError") || t.aiAnalysisFailed);
+      }
+    } catch (error) {
+      console.error("Unexpected analyze error:", error);
+      alert(tr("analysisError") || t.backendError);
+    } finally {
+      setIsAnalyzing(false);
+    }
+  };
 
   /* =========================================================
      RESULTS PAGE
@@ -7132,54 +7267,12 @@ if (
             </label>
 
             <button
-  className="continue-btn"
-  onClick={async () => {
-    console.log("🚀 AI ANALYSIS BUTTON CLICKED");
-
-    try {
-      const payload = {
-        location: formData.location,
-        capital: formData.capital,
-        business: formData.business,
-        skills: formData.skills,
-        resources: formData.resources,
-        language: formData.language,
-      };
-
-      const response = await fetch(
-        "https://gram-saarthi-ai-five.vercel.app/api/analyze",
-        {
-          method: "POST",
-          headers: {
-            "Content-Type": "application/json",
-          },
-          body: JSON.stringify(payload),
-        }
-      );
-
-      console.log("📡 Backend status:", response.status);
-
-      const data = await response.json();
-
-      console.log("🤖 AI response:", data);
-
-      if (data.success) {
-        setAiResult(data.result || "");
-        setBankReadyReport(data.bankReadyReport || null);
-        setPdfReport(data.pdf || null);
-        setPage("results");
-      } else {
-        console.error("❌ AI response error:", data);
-        alert(data.error || data.message || t.aiAnalysisFailed);
-      }
-    } catch (error) {
-      console.error("❌ Connection error:", error);
-      alert(t.backendError);
-    }
-  }}
->
-  {t.continue} →
-</button>
+              className="continue-btn"
+              onClick={handleAnalyze}
+              disabled={isAnalyzing}
+            >
+              {isAnalyzing ? tr("analysisInProgress") : `${t.continue} →`}
+            </button>
           </div>
         </div>
       </div>
