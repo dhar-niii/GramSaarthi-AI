@@ -39,7 +39,6 @@ app.post("/api/analyze", async (req, res) => {
 
     const selectedLanguage = language || "English";
 
-    // 👇 IMPORTANT:
     const prompt = `
 You are GramSaarthi AI, an AI-powered hyper-local business advisory assistant for rural and semi-urban entrepreneurs.
 
@@ -121,12 +120,6 @@ Rules:
 - Keep language simple and actionable.
 - Tailor the entire analysis primarily to the selected Business Category.
 - Do not make up government scheme rules or financial figures.
-`;
-    // Paste your EXISTING Gemini prompt here.
-    // Use the exact same prompt from server/server.cjs.
-
-    const prompt = `
-PASTE YOUR EXISTING GEMINI PROMPT HERE
 `;
 
     const response = await ai.models.generateContent({
