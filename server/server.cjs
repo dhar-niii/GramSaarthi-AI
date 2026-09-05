@@ -4286,12 +4286,14 @@ ${String(text)}
 // ======================================================
 // SERVER
 // ======================================================
-const PORT =
-  process.env.PORT || 5000;
-app.listen(
-  PORT,
-  () =>
+if (require.main === module) {
+  const PORT = process.env.PORT || 5000;
+
+  app.listen(PORT, () => {
     console.log(
       `🌱 GramSaarthi backend running on http://localhost:${PORT}`
-    )
-);
+    );
+  });
+}
+
+module.exports = app;
