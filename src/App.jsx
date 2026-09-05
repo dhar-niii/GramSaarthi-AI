@@ -1,5 +1,8 @@
 import React from "react";
 import html2pdf from "html2pdf.js";
+const API_BASE_URL = import.meta.env.PROD
+  ? ""
+  : "http://localhost:5000";
 
 /* =========================================================
    11 LANGUAGE TRANSLATIONS
@@ -4038,16 +4041,17 @@ if (
       setIsSpeaking(true);
 
       try {
-        const response = await fetch(`${API_BASE_URL}/api/voice`, {
-          method: "POST",
-          headers: {
-            "Content-Type": "application/json",
-          },
-          body: JSON.stringify({
-            text,
-            language: formData.language || "English",
-          }),
-        });
+        response = await fetch(
+  `${API_BASE_URL}/api/analyze`,
+  {
+    method: "POST",
+    headers: {
+      "Content-Type": "application/json",
+    },
+    body: JSON.stringify(payload),
+    signal: controller.signal,
+  }
+);
 
         const data = await response.json();
 
