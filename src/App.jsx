@@ -5693,67 +5693,6 @@ if (
         ? t.microFinance
         : t.termLoan;
 
-        const downloadReport = async () => {
-  let container = null;
-
-  try {
-    // ---------------------------------------------------------
-    // 1. SAFELY READ AI RESULT
-    // ---------------------------------------------------------
-    let report = {};
-
-    try {
-      if (typeof aiResult === "string" && aiResult.trim()) {
-        let clean = aiResult.trim();
-
-        // Remove markdown JSON fences
-        clean = clean
-          .replace(/^```json\s*/i, "")
-          .replace(/^```\s*/i, "")
-          .replace(/\s*```$/i, "")
-          .trim();
-
-        report = JSON.parse(clean);
-      } else if (
-        typeof aiResult === "object" &&
-        aiResult !== null
-      ) {
-        report = aiResult;
-      }
-    } catch (error) {
-      console.warn(
-        "Could not parse AI result. Using available application data.",
-        error
-      );
-      report = {};
-    }
-
-    // ---------------------------------------------------------
-    // 2. HELPERS
-    // ---------------------------------------------------------
-    const language = formData?.language || "English";
-
-    const esc = (value) => {
-      if (value === null || value === undefined) return "";
-      return String(value)
-        .replace(/&/g, "&amp;")
-        .replace(/</g, "&lt;")
-        .replace(/>/g, "&gt;")
-        .replace(/"/g, "&quot;")
-        .replace(/'/g, "&#039;");
-    };
-
-    const safe = (value, fallback = "Not specified") => {
-      if (
-        value === null ||
-        value === undefined ||
-        String(value).trim() === ""
-      ) {
-        return fallback;
-      }
-      return value;
-    };
-
       
     return (
       <div className="assessment-page">
@@ -5963,7 +5902,7 @@ if (
 
           <button
             className="continue-btn"
-            onClick={downloadReport}
+           onClick={downloadPdfReport}
           >
             📄 {t.downloadReport}
           </button>
