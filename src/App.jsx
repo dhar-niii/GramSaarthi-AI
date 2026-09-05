@@ -168,8 +168,18 @@ const translations = {
     illustrative: "Illustrative",
     schemeNote:
       "This is an illustrative repayment estimate. Actual loan terms, interest, subsidy and moratorium depend on the lender and applicable scheme eligibility.",
-    downloadReport: "Download Complete Report",
-    downloadCompleteReport: "Download Complete Report",
+    downloadReport: "Download GramSaarthi Business Report",
+    downloadCompleteReport: "Download GramSaarthi Business Report",
+    businessSummary: "Business Summary",
+    marketOpportunities: "Market Opportunities",
+    localCompetition: "Local Competition",
+    investmentPlan: "Investment Plan",
+    financialPlan: "Financial Plan",
+    fundingRequirements: "Funding Requirements",
+    financingPlan: "Bank Loan / Financing Plan",
+    loanDetails: "Bank Financing Terms & EMI Schedule",
+    loanAmount: "Loan Amount",
+    businessRoadmap: "Business Roadmap / Recommended Next Steps",
     listen: "Listen",
     audioLoading: "Generating audio...",
     audioNotSupported: "Voice output is not supported in this browser.",
@@ -4103,13 +4113,13 @@ if (
       };
 
       const controller = new AbortController();
-      const timeout = setTimeout(() => controller.abort(), 30000);
+      const timeout = setTimeout(() => controller.abort(), 120000);
 
       let response;
 
       try {
         response = await fetch(
-          "https://gram-saarthi-ai-five.vercel.app/api/analyze",
+         "http://localhost:5000/api/analyze" ,
           {
             method: "POST",
             headers: {
@@ -5683,12 +5693,45 @@ if (
         ? t.microFinance
         : t.termLoan;
 
-    const downloadReport = async () => {
-  try {
-    const report = aiResult || {};
+        const downloadReport = async () => {
+  let container = null;
 
-    const language = formData.language || "English";
-    const isRTL = language === "Urdu";
+  try {
+    // ---------------------------------------------------------
+    // 1. SAFELY READ AI RESULT
+    // ---------------------------------------------------------
+    let report = {};
+
+    try {
+      if (typeof aiResult === "string" && aiResult.trim()) {
+        let clean = aiResult.trim();
+
+        // Remove markdown JSON fences
+        clean = clean
+          .replace(/^```json\s*/i, "")
+          .replace(/^```\s*/i, "")
+          .replace(/\s*```$/i, "")
+          .trim();
+
+        report = JSON.parse(clean);
+      } else if (
+        typeof aiResult === "object" &&
+        aiResult !== null
+      ) {
+        report = aiResult;
+      }
+    } catch (error) {
+      console.warn(
+        "Could not parse AI result. Using available application data.",
+        error
+      );
+      report = {};
+    }
+
+    // ---------------------------------------------------------
+    // 2. HELPERS
+    // ---------------------------------------------------------
+    const language = formData?.language || "English";
 
     const esc = (value) => {
       if (value === null || value === undefined) return "";
@@ -5700,611 +5743,17 @@ if (
         .replace(/'/g, "&#039;");
     };
 
-    const list = (items) => {
-      if (!Array.isArray(items) || items.length === 0) {
-        return `<p style="margin:4px 0;">—</p>`;
+    const safe = (value, fallback = "Not specified") => {
+      if (
+        value === null ||
+        value === undefined ||
+        String(value).trim() === ""
+      ) {
+        return fallback;
       }
-
-      return `
-        <ul style="margin:6px 0 0 20px; padding:0;">
-          ${items.map(item => `<li style="margin-bottom:5px;">${esc(item)}</li>`).join("")}
-        </ul>
-      `;
+      return value;
     };
 
-    const section = (title, content) => `
-      <section class="pdf-section">
-        <h2>${esc(title)}</h2>
-        ${content}
-      </section>
-    `;
-
-    const html = `
-      <div
-        id="pdfReportContainer"
-        style="
-          width: 190mm;
-          padding: 10mm;
-          box-sizing: border-box;
-          background: white;
-          color: #17202a;
-          font-family: Arial, 'Noto Sans', sans-serif;
-          font-size: 11px;
-          line-height: 1.55;
-          direction: ${isRTL ? "rtl" : "ltr"};
-          text-align: ${isRTL ? "right" : "left"};
-        "
-      >
-
-        <!-- COVER -->
-        <div
-          style="
-            min-height: 245mm;
-            display:flex;
-            flex-direction:column;
-            justify-content:center;
-            align-items:center;
-            text-align:center;
-            padding:20mm;
-            box-sizing:border-box;
-          "
-        >
-          <div style="font-size:38px; margin-bottom:12px;">🌾</div>
-
-          <h1 style="
-            font-size:30px;
-            margin:0 0 8px;
-            font-weight:700;
-          ">
-            GramSaarthi AI
-          </h1>
-
-          <h2 style="
-            font-size:20px;
-            margin:0 0 20px;
-            font-weight:500;
-          ">
-            ${esc(t.aiBusinessAdvisory || "AI Business Advisory")}
-          </h2>
-
-          <div style="
-            width:70%;
-            border-top:2px solid #2f855a;
-            margin:15px auto 25px;
-          "></div>
-
-          <p style="font-size:15px; margin:5px 0;">
-            <strong>${esc(t.businessIdea || "Business Idea")}:</strong>
-            ${esc(formData.business || formData.businessIdea || "—")}
-          </p>
-
-          <p style="font-size:15px; margin:5px 0;">
-            <strong>${esc(t.location || "Location")}:</strong>
-            ${esc(formData.location || "—")}
-          </p>
-
-          <p style="font-size:15px; margin:5px 0;">
-            <strong>${esc(t.language || "Language")}:</strong>
-            ${esc(language)}
-          </p>
-
-          <p style="
-            margin-top:35px;
-            font-size:12px;
-            opacity:.7;
-          ">
-            ${esc(t.generatedByGramSaarthi || "Generated by GramSaarthi AI")}
-          </p>
-        </div>
-
-        <!-- BUSINESS MATCH -->
-        <div style="page-break-before:always;"></div>
-
-        ${section(
-          t.businessMatch || "Business Match",
-          `
-            <div class="info-box">
-              <h3>${esc(formData.business || formData.businessIdea || "Business")}</h3>
-
-              ${
-                translatedRecommendation
-                  ? `<p>${esc(translatedRecommendation)}</p>`
-                  : ""
-              }
-            </div>
-          `
-        )}
-
-        <!-- AI REPORT -->
-        ${
-          report.marketReach
-            ? section(
-                t.marketReach || "Market Reach",
-                `
-                  ${
-                    report.marketReach.summary
-                      ? `<p>${esc(report.marketReach.summary)}</p>`
-                      : ""
-                  }
-
-                  ${
-                    report.marketReach.primaryCustomers
-                      ? `
-                        <h3>${esc(t.primaryCustomers || "Primary Customers")}</h3>
-                        ${list(report.marketReach.primaryCustomers)}
-                      `
-                      : ""
-                  }
-
-                  ${
-                    report.marketReach.distributionChannels
-                      ? `
-                        <h3>${esc(
-                          t.distributionChannels ||
-                            "Distribution Channels"
-                        )}</h3>
-                        ${list(report.marketReach.distributionChannels)}
-                      `
-                      : ""
-                  }
-                `
-              )
-            : ""
-        }
-
-        ${
-          report.opportunity
-            ? section(
-                t.opportunity || "Opportunity",
-                `
-                  ${
-                    report.opportunity.summary
-                      ? `<p>${esc(report.opportunity.summary)}</p>`
-                      : ""
-                  }
-
-                  ${
-                    report.opportunity.underservedNeeds
-                      ? `
-                        <h3>${esc(
-                          t.underservedNeeds || "Underserved Needs"
-                        )}</h3>
-                        ${list(report.opportunity.underservedNeeds)}
-                      `
-                      : ""
-                  }
-                `
-              )
-            : ""
-        }
-
-        ${
-          report.swot
-            ? section(
-                t.swot || "SWOT Analysis",
-                `
-                  <div class="grid">
-
-                    <div class="card">
-                      <h3>${esc(t.strengths || "Strengths")}</h3>
-                      ${list(report.swot.strengths)}
-                    </div>
-
-                    <div class="card">
-                      <h3>${esc(t.weaknesses || "Weaknesses")}</h3>
-                      ${list(report.swot.weaknesses)}
-                    </div>
-
-                    <div class="card">
-                      <h3>${esc(t.opportunities || "Opportunities")}</h3>
-                      ${list(report.swot.opportunities)}
-                    </div>
-
-                    <div class="card">
-                      <h3>${esc(t.threats || "Threats")}</h3>
-                      ${list(report.swot.threats)}
-                    </div>
-
-                  </div>
-                `
-              )
-            : ""
-        }
-
-        ${
-          report.localThreats
-            ? section(
-                t.localThreats || "Local Threats",
-                list(report.localThreats)
-              )
-            : ""
-        }
-
-        ${
-          report.competitors
-            ? section(
-                t.competitors || "Competitors",
-                `
-                  ${
-                    report.competitors.summary
-                      ? `<p>${esc(report.competitors.summary)}</p>`
-                      : ""
-                  }
-
-                  ${
-                    report.competitors.mainCompetitors
-                      ? `
-                        <h3>${esc(
-                          t.mainCompetitors || "Main Competitors"
-                        )}</h3>
-                        ${list(report.competitors.mainCompetitors)}
-                      `
-                      : ""
-                  }
-
-                  ${
-                    report.competitors.competitiveAdvantage
-                      ? `
-                        <h3>${esc(
-                          t.competitiveAdvantage ||
-                            "Competitive Advantage"
-                        )}</h3>
-                        <p>${esc(
-                          report.competitors.competitiveAdvantage
-                        )}</p>
-                      `
-                      : ""
-                  }
-                `
-              )
-            : ""
-        }
-
-        ${
-          report.pricing
-            ? section(
-                t.pricing || "Pricing Strategy",
-                `
-                  ${
-                    report.pricing.strategy
-                      ? `<p><strong>${esc(
-                          t.strategy || "Strategy"
-                        )}:</strong> ${esc(report.pricing.strategy)}</p>`
-                      : ""
-                  }
-
-                  ${
-                    report.pricing.suggestion
-                      ? `<p><strong>${esc(
-                          t.suggestedPricing || "Suggested Pricing"
-                        )}:</strong> ${esc(report.pricing.suggestion)}</p>`
-                      : ""
-                  }
-
-                  ${
-                    report.pricing.reason
-                      ? `<p><strong>${esc(
-                          t.why || "Why"
-                        )}:</strong> ${esc(report.pricing.reason)}</p>`
-                      : ""
-                  }
-                `
-              )
-            : ""
-        }
-
-        ${
-          report.recommendation
-            ? section(
-                t.recommendation || "Recommendation",
-                `
-                  ${
-                    report.recommendation.verdict
-                      ? `
-                        <div class="verdict">
-                          ${esc(report.recommendation.verdict)}
-                        </div>
-                      `
-                      : ""
-                  }
-
-                  ${
-                    report.recommendation.reason
-                      ? `<p>${esc(report.recommendation.reason)}</p>`
-                      : ""
-                  }
-
-                  ${
-                    report.recommendation.steps
-                      ? `
-                        <h3>${esc(
-                          t.recommendedSteps || "Recommended Steps"
-                        )}</h3>
-                        ${list(report.recommendation.steps)}
-                      `
-                      : ""
-                  }
-                `
-              )
-            : ""
-        }
-
-        <!-- FINANCIAL ROADMAP -->
-        <div style="page-break-before:always;"></div>
-
-        ${section(
-          t.financialRoadmap || "Financial Roadmap",
-          `
-            <table class="financial-table">
-              <tr>
-                <td>${esc(
-                  t.yourContribution || "Your Contribution"
-                )}</td>
-                <td>₹${Number(ownContribution || 0).toLocaleString("en-IN")}</td>
-              </tr>
-
-              <tr>
-                <td>${esc(
-                  t.estimatedProjectCost || "Estimated Project Cost"
-                )}</td>
-                <td>₹${Number(projectCost || 0).toLocaleString("en-IN")}</td>
-              </tr>
-
-              <tr>
-                <td>${esc(
-                  t.estimatedFundingGap || "Estimated Funding Gap"
-                )}</td>
-                <td>₹${Number(loanRequired || 0).toLocaleString("en-IN")}</td>
-              </tr>
-
-              <tr>
-                <td>${esc(t.scheme || "Scheme")}</td>
-                <td>${esc(translatedSchemeName || "—")}</td>
-              </tr>
-
-              <tr>
-                <td>${esc(t.interestRate || "Interest Rate")}</td>
-                <td>${esc(annualInterest || "—")}%</td>
-              </tr>
-
-              <tr>
-                <td>${esc(t.tenure || "Tenure")}</td>
-                <td>${esc(loanYears || "—")} ${esc(t.years || "years")}</td>
-              </tr>
-
-              <tr>
-                <td>${esc(t.moratorium || "Moratorium")}</td>
-                <td>${esc(moratoriumMonths || "0")} ${esc(
-                  t.months || "months"
-                )}</td>
-              </tr>
-
-              <tr>
-                <td>${esc(t.estimatedEmi || "Estimated EMI")}</td>
-                <td>₹${Number(emi || 0).toLocaleString("en-IN")}</td>
-              </tr>
-            </table>
-          `
-        )}
-
-        ${
-          t.schemeNote
-            ? `
-              <div class="note">
-                <strong>${esc(t.schemeNote)}</strong>
-              </div>
-            `
-            : ""
-        }
-
-        <!-- REPAYMENT ROADMAP -->
-        <div style="page-break-before:always;"></div>
-
-        ${section(
-          t.repaymentRoadmap || "Repayment Roadmap",
-          `
-            <div class="roadmap-box">
-              <div class="roadmap-step">
-                <strong>1.</strong>
-                <span>
-                  ${esc(
-                    t.initialMoratorium ||
-                      "Initial moratorium period"
-                  )}
-                </span>
-              </div>
-
-              <div class="roadmap-step">
-                <strong>2.</strong>
-                <span>
-                  ${esc(
-                    t.monthlyRepayment ||
-                      "Begin regular monthly repayment"
-                  )}
-                </span>
-              </div>
-
-              <div class="roadmap-step">
-                <strong>3.</strong>
-                <span>
-                  ${esc(
-                    t.businessGrowth ||
-                      "Increase business revenue and maintain repayment discipline"
-                  )}
-                </span>
-              </div>
-
-              <div class="roadmap-step">
-                <strong>4.</strong>
-                <span>
-                  ${esc(
-                    t.futureExpansion ||
-                      "Use improved cash flow for future expansion"
-                  )}
-                </span>
-              </div>
-            </div>
-          `
-        )}
-
-        <!-- FOOTER -->
-        <div style="
-          margin-top:25px;
-          padding-top:12px;
-          border-top:1px solid #ddd;
-          text-align:center;
-          font-size:9px;
-          opacity:.65;
-        ">
-          GramSaarthi AI • ${new Date().toLocaleDateString("en-IN")}
-        </div>
-
-      </div>
-
-      <style>
-        .pdf-section {
-          margin-bottom: 18px;
-          page-break-inside: avoid;
-        }
-
-        .pdf-section h2 {
-          font-size: 19px;
-          margin: 0 0 10px;
-          padding-bottom: 5px;
-          border-bottom: 2px solid #2f855a;
-        }
-
-        .pdf-section h3 {
-          font-size: 13px;
-          margin: 12px 0 5px;
-        }
-
-        .info-box,
-        .card,
-        .note,
-        .roadmap-box,
-        .verdict {
-          border: 1px solid #d7d7d7;
-          border-radius: 8px;
-          padding: 10px;
-          margin: 8px 0;
-          background: #fafafa;
-        }
-
-        .verdict {
-          font-size: 15px;
-          font-weight: bold;
-          text-align: center;
-        }
-
-        .grid {
-          display: grid;
-          grid-template-columns: 1fr 1fr;
-          gap: 10px;
-        }
-
-        .financial-table {
-          width: 100%;
-          border-collapse: collapse;
-          margin-top: 10px;
-        }
-
-        .financial-table td {
-          border: 1px solid #d7d7d7;
-          padding: 8px;
-        }
-
-        .financial-table td:first-child {
-          font-weight: 600;
-        }
-
-        .roadmap-step {
-          display: flex;
-          gap: 10px;
-          padding: 9px 0;
-          border-bottom: 1px solid #ddd;
-        }
-
-        .roadmap-step:last-child {
-          border-bottom: none;
-        }
-
-        @media print {
-          .pdf-section {
-            page-break-inside: avoid;
-          }
-        }
-      </style>
-    `;
-
-    const container = document.createElement("div");
-
-    container.style.position = "fixed";
-    container.style.left = "-100000px";
-    container.style.top = "0";
-    container.style.width = "210mm";
-    container.style.background = "#ffffff";
-    container.innerHTML = html;
-
-    document.body.appendChild(container);
-
-    const options = {
-      margin: [8, 8, 12, 8],
-      filename: "GramSaarthi-AI-Business-Report.pdf",
-
-      image: {
-        type: "jpeg",
-        quality: 0.98,
-      },
-
-      html2canvas: {
-        scale: 2,
-        useCORS: true,
-        backgroundColor: "#ffffff",
-        logging: false,
-      },
-
-      jsPDF: {
-        unit: "mm",
-        format: "a4",
-        orientation: "portrait",
-      },
-
-      pagebreak: {
-        mode: ["css", "legacy"],
-      },
-    };
-
-    const worker = html2pdf()
-      .set(options)
-      .from(container)
-      .toPdf();
-
-    const pdf = await worker.get("pdf");
-
-    const totalPages = pdf.internal.getNumberOfPages();
-
-    for (let page = 1; page <= totalPages; page++) {
-      pdf.setPage(page);
-      pdf.setFontSize(8);
-
-      pdf.text(
-        `${page} / ${totalPages}`,
-        105,
-        290,
-        { align: "center" }
-      );
-    }
-
-    await worker.save();
-
-    document.body.removeChild(container);
-
-  } catch (error) {
-    console.error("PDF generation error:", error);
-    alert("PDF could not be generated. Please try again.");
-  }
-};
       
     return (
       <div className="assessment-page">
@@ -6518,15 +5967,6 @@ if (
           >
             📄 {t.downloadReport}
           </button>
-
-          {pdfReport?.available && pdfReport?.data && (
-            <button
-              className="continue-btn"
-              onClick={downloadPdfReport}
-            >
-              📄 {t.downloadCompleteReport}
-            </button>
-          )}
 
           <div className="scheme-section">
             <p className="small-label">
