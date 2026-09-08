@@ -1,7 +1,9 @@
 import express from "express";
 import cors from "cors";
 import { GoogleGenAI } from "@google/genai";
+const app = require("../server/server.cjs");
 
+module.exports = app;
 const app = express();
 
 app.use(cors());
